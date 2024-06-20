@@ -17,6 +17,8 @@ This project is a Go-based log parser for Quake 3 Arena server logs. The parser 
 - `<world>` is not considered a player and should not appear in the list of players or in the dictionary of kills.
 - The `total_kills` counter includes both player and world deaths.
 - The kill counter will not reset if the player disconnects and connects again into the same ongoing match
+- If the log file ends without a `ShutdownGame` event the code will consider the last ongoing match as ended
+- If the log file shows two consecutive `InitGame` events without a `ShutdownGame` event then the code will consider that the first match ended unexpectedly and will start collecting stats for the second one
 
 ## Event handling
 This code will only consider the below events for parsing:
