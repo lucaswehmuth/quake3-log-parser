@@ -16,6 +16,7 @@ This project is a Go-based log parser for Quake 3 Arena server logs. The parser 
 - If a player kills themselves, they lose 1 kill score.
 - `<world>` is not considered a player and should not appear in the list of players or in the dictionary of kills.
 - The `total_kills` counter includes both player and world deaths.
+- The kill counter will not reset if the player disconnects and connects again into the same ongoing match
 
 ## Event handling
 This code will only consider the below events for parsing:
